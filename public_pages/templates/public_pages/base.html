@@ -25,58 +25,73 @@
 				<div class="logo">
 					<a href="{% url 'Index_URL' %}"><img src="{% static 'wiki/img/logo.png' %}" alt="logo"></a>
 				</div>
+                <ul class="sidebar-nav">
+                
+                {% if user.is_authenticated %}
+                </ul>
+
 				<div class="navigation">
+
+                    <span class="user">Welcom ({{ user.username }})</span> 
+            
                     <h3>Accounts</h3>
 					<ul>
-						<li><a href="#">002_Main page</a></li>
-						<li><a href="#">003_Contents</a></li>
-						<li><a href="#">004_Featured content</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+						<li><a href="#">Signup</a></li>
+                        <li><a href="#">Create Profile</a></li>
+						<li><a href="#">My Profile</a></li>
+                        <li><a href="{% url 'password_reset' %}">Password Reset</a></li>
+						<li><a href="{% url 'password_change' %}">Change password</a></li>
 					</ul>
-                    <h3>B - Interaction</h3>
+                    <h3>Association</h3>
 					<ul>
-						<li><a href="#">005_Help</a></li>
-						<li><a href="#">006_About</a></li>
-						<li><a href="#">007_Portal</a></li>
+						<li><a href="#">01</a></li>
+						<li><a href="#">02</a></li>
+						<li><a href="#">03</a></li>
 					</ul>
-                    <h3>C - Interaction</h3>
+                    <h3>Financial</h3>
 					<ul>
-						<li><a href="#">008_Help</a></li>
-						<li><a href="#">009_About</a></li>
-						<li><a href="#">010_Portal</a></li>
+						<li><a href="#">01</a></li>
+						<li><a href="#">02</a></li>
+						<li><a href="#">03</a></li>
 					</ul>
-					<h3>D - Interaction</h3>
+					<h3>Housing</h3>
 					<ul>
-						<li><a href="#">008_Help</a></li>
-						<li><a href="#">009_About</a></li>
-						<li><a href="#">010_Portal</a></li>
+						<li><a href="#">01</a></li>
+						<li><a href="#">02</a></li>
+						<li><a href="#">03</a></li>
 					</ul>
-					<h3>E - Interaction</h3>
+					<h3>Settings</h3>
 					<ul>
-						<li><a href="#">008_Help</a></li>
-						<li><a href="#">009_About</a></li>
-						<li><a href="#">010_Portal</a></li>
-					</ul>
-					<h3>F - Interaction</h3>
-					<ul>
-						<li><a href="#">008_Help</a></li>
-						<li><a href="#">009_About</a></li>
-						<li><a href="#">010_Portal</a></li>
-					</ul>
-					<h3>C - Interaction</h3>
-					<ul>
-						<li><a href="#">008_Help</a></li>
-						<li><a href="#">009_About</a></li>
-						<li><a href="#">010_Portal</a></li>
+						<li><a href="#">01</a></li>
+						<li><a href="#">02</a></li>
+						<li><a href="#">03</a></li>
 					</ul>
 				</div>
 
 			
+                {% else %}
+                
+                
+                
+                
+              {% endif %}
 			</div>
 			<div class="mainsection">
-				<div class="headerLinks">
-					<span class="user">Not logged in</span> <a href="#">Signup</a> <a href="#">Log in</a>
+                {% if  user.is_authenticated %}
+
+                <div class="headerLinks">
+                    <h2><span class="user">( Logged In Now )</span> </h2>
 				</div>
 				
+				{% else %}
+				
+				<div class="headerLinks">
+                    <h2><span class="user">( Not Logged In Now )</span>  <a href="#">Signup</a> <a href="{% url 'login' %}">Login</a></h2>
+				</div>
+				
+                {% endif%}
+
 					
 					<div id="simpleSearch">
 						<input type="text" name="searchInput" id="searchInput" placeholder="Search Wikipedia" size="12" />

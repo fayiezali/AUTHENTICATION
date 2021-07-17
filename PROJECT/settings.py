@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     # تسجيل التطبيقات التي أنشأتها في المشروع
     'widget_tweaks', # 01 جميلة - التطبيق رقم  "Login.html"  هذا التطبيق وظيفته يجعل شكل صفحة
     'public_pages', # التطبيق رقم 02
+    'accounts', # التطبيق رقم 03
     # 'django_countries',# تطبيق معد مسبقاً يحتوي على جميع اسماء دول العالم
-    # 'accounts',
 # -------------------------------------------------------------------------------
 
 ]
@@ -139,13 +139,28 @@ MEDIA_ROOT = (BASE_DIR /'media')#تحديد مسار الملف وهو المو�
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGIN_REDIRECT_URL = '/' ## Redirect to Home Page URL after login 
-# LOGOUT_REDIRECT_URL = '/'
 #
-# LOGIN_REDIRECT_URL = 'Index_URL' # Go To Home Page HTML
+LOGIN_REDIRECT_URL = 'Index_URL' # Go To Home Page HTML
+LOGOUT_REDIRECT_URL = 'Index_URL' # Go To LogoutDone.html Page HTML
 # LOGOUT_REDIRECT_URL = 'LogoutDoneTemplateView-logout-done-URL' # Go To LogoutDone.html Page HTML
 
 
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
+EMAIL_HOST_USER = 'fayiez1@gmail.com' # email id
+EMAIL_HOST_PASSWORD = 'F050a636h1' #password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+#
+#
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
