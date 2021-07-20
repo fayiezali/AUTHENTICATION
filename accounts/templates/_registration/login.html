@@ -1,0 +1,81 @@
+
+
+{% extends "public_pages/base.html" %}  
+{% load static %}
+
+
+
+
+
+
+{% block Page_Title  %}
+<h1>Login</h1>
+{% endblock Page_Title %}  
+
+
+
+
+
+
+{% block Contents_Page %} 
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form enctype="multipart/form-data" " method="post" novalidate>
+        {% csrf_token %} <!-- Django encrypts Data -->
+        
+            {% include  "includes/data_validation_form.html" %} <!-- Required Form + Data Validation -->
+
+            <button type="submit" class="btn btn-success">Login</button>
+            <a href="#" class="btn btn-info">Go To Home Page</a>
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p>Have You Lost The Password?<a href="#">Lost password?</a></p>
+<p>Create New Accounts <a href="#">Signup</a></p>   
+
+{% endblock Contents_Page %} 

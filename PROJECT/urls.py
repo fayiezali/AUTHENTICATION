@@ -31,7 +31,7 @@ urlpatterns += [
 #
 urlpatterns += [
     path('public_pages/', include('public_pages.urls')),# Path App Public_Pages
-    # path('accounts/', include('accounts.urls')), # This Path I was Created From My App
+    path('accounts/', include('accounts.urls')), # This Path I was Created From My App
     
 ]
 

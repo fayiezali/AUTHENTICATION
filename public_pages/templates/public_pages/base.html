@@ -8,7 +8,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>001_Wikipedia Template</title>
+        <!-- The Title Of The  Application That Appears On The Taskbar-->
+        <title>SAVING</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="canonical" href="http://html5-templates.com/" />
@@ -36,12 +37,15 @@
             
                     <h3>Accounts</h3>
 					<ul>
-						<li><a href="{% url 'logout' %}">Logout</a></li>
+						<li><a href="{% url 'My_Logout_URL' %}">Logout</a></li>
 						<li><a href="#">Signup</a></li>
                         <li><a href="#">Create Profile</a></li>
 						<li><a href="#">My Profile</a></li>
                         <li><a href="{% url 'password_reset' %}">Password Reset</a></li>
-						<li><a href="{% url 'password_change' %}">Change password</a></li>
+                        <!-- <li><a href="#">My_Password Reset</a></li> -->
+
+                        
+						<li><a href="{% url 'My_PasswordChange_URL' %}">Change password</a></li>
 					</ul>
                     <h3>Association</h3>
 					<ul>
