@@ -12,7 +12,7 @@ from django.contrib.auth.models import User # إستيراد اسم المستخ
 # Only a Logged In User can call this view
 from django.contrib.auth.mixins import LoginRequiredMixin , PermissionRequiredMixin
 
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 #
 from django.contrib.auth.forms import (
     AuthenticationForm, PasswordChangeForm , PasswordResetForm, SetPasswordForm,
@@ -36,54 +36,6 @@ from django.utils.translation import gettext_lazy as _
 #
 from django.shortcuts import resolve_url
 #
-
-# class My_PasswordReset(PasswordResetView):
-#     template_name = 'commons/my_password_reset.html'
-#     subject_template_name = 'commons/password_reset_subject.txt'
-#     success_url = reverse_lazy('My_password_reset_done_URL')
-#     title = _('Password Reset')
-# #
-# #
-# #
-# #
-# #
-# #
-# class My_PasswordResetDone(PasswordResetDoneView):
-#     template_name = 'commons/my_password_reset_done.html'
-#     title = _('Password Reset Sent')
-# #
-# #
-# #
-# #
-# #
-# #
-
-# class My_PasswordResetConfirm(FormView):
-#     # form_class = SetPasswordForm
-#     # template_name = 'registration/my_password_reset_confirm.html'
-#     post_reset_login = False
-#     post_reset_login_backend = None
-#     reset_url_token = 'set-password'
-#     success_url = reverse_lazy('password_reset_complete')
-#     template_name = 'commons/my_password_reset_confirm.html'
-#     title = _('Enter new password')
-#     token_generator = default_token_generator
-# #
-# #
-# #
-# #
-# #
-# #
-# class My_PasswordResetComplete(PasswordResetCompleteView):
-#     template_name = 'commons/my_password_reset_complete.html'
-#     title = _('Password Reset Complete')
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['My_Login_URL'] = resolve_url(settings.LOGIN_URL)
-#         return context
-
-
 #
 #
 #
@@ -95,17 +47,9 @@ class My_Login(LoginView):
     template_name = 'registration/my_login.html'  # The Page HTML to Display
 #
 #
-#
-#
-#
-#
 # Log Out Of The System:
 class My_Logout(LogoutView):
     template_name = 'registration/my_logout.html'
-#
-#
-#
-#
 #
 #
 # Display Them About Page
@@ -113,19 +57,15 @@ class My_LogoutDone(TemplateView):
     template_name = 'registration/my_logout_done.html' # The Page HTML to Display
 #
 #
-#
-#
-#
-#
+# Confirm Checkout From System
 class My_PasswordChange(PasswordChangeView):
     template_name = 'registration/my_password_change.html' 
     success_url = reverse_lazy('My_PasswordChangeDone_URL')
 #
 # 
-#
-#
-#
-#
+#Confirm Password Change
 class My_PasswordChangeDone(TemplateView):
     template_name = 'registration/my_password_change_done.html'
     # title = ('password change successful')
+#
+#
