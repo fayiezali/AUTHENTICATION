@@ -143,7 +143,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'Index_URL' # Go To Home Page HTML
 LOGOUT_REDIRECT_URL = 'My_LogoutDone_URL' # Go To LogoutDone.html Page HTML
 
-
+#Call Class Sign  In with Email
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
