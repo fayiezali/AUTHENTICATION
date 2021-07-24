@@ -33,7 +33,10 @@ class ProfileUpdateForm(forms.ModelForm):
             'last_name', 
             'email',
             ]
-
+class SignUpForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('email','first_name','last_name','username')
         # help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')} 
         
 

@@ -1,12 +1,9 @@
 #
 from django.urls import path
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views # This Views Built-in Django
 from django.urls import reverse_lazy
-from django.urls import path
-from django.contrib.auth import views as views_django_authentication # This Views Built-in Django
 # from accounts.views import *
 from accounts import views
-from django.contrib.auth import views as auth_views
 #
 #
 #
@@ -63,6 +60,7 @@ urlpatterns += [
     #*********************************************************************************
 
 ]
-
-
-
+urlpatterns +=[
+        path('signup/', views.signup, name="signup"),  
+        path('activate/<uidb64>/<token>/',views.activate, name='activate'),  
+]

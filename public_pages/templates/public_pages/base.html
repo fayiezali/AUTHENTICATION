@@ -90,7 +90,7 @@
 				{% else %}
 				
 				<div class="headerLinks">
-                    <h2><span class="user">( Not Logged In Now )</span>  <a href="#">Signup</a> <a href="{% url 'login' %}">Member Login</a> <a href="{% url 'admin:login' %}">Admin Login</a></h2>
+                    <h2><span class="user">( Not Logged In Now )</span>  <a href="{% url 'signup' %}">Signup</a> <a href="{% url 'login' %}">Member Login</a> <a href="{% url 'admin:login' %}">Admin Login</a></h2>
 				</div>
 				
                 {% endif%}
