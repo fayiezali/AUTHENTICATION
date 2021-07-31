@@ -1,4 +1,9 @@
 {% load static %}
+<!-- ---------  Control Page Size Start  ------------ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<script defer src="/your-path-to-fontawesome/js/all.js"></script> <!--load all styles -->
+<!-- ---------  Control Page Size End  ------------ -->
 <link href="{% static 'wiki/style.css' %}" rel="stylesheet">
 
 <!-- Base.html - Header_Page Start ---------------------------- -->
@@ -17,11 +22,10 @@
         <script src="{% static 'wiki/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    
 
 		<div class="wrapAll clearfix">
+		
 			<div class="sidebar">
 				<div class="logo">
 					<a href="{% url 'Index_URL' %}"><img src="{% static 'wiki/img/logo.png' %}" alt="logo"></a>
@@ -37,14 +41,22 @@
             
                     <h3>Accounts</h3>
 					<ul>
-						<li><a href="{% url 'logout' %}">Logout</a></li>
-						<li><a href="#">Signup</a></li>
-                        <li><a href="#">Create Profile</a></li>
-						<li><a href="#">My Profile</a></li>
+                        <h2><a href="{% url 'logout' %}">Logout</a></h2>
+						<h2><a href="{% url 'My_Profile_Contact_Us' %}">Contact Us</a></h2>
+                        <h2><a href="{% url 'my_profile_list_URL' %}">Profile List</a></h2>
+						<h2><a href="{% url 'My_Profile_Detail_ID_URL' user.pk %}">Profile Details ID</a></h2>
+                        <h2><a href="{% url 'My_Profile_Detail_Slug_URL' user.pk %}">Profile Details Slug</a></h2>
+                        <h2><a href="{% url 'my_Profile_delete_URL' user.pk %}">Delete Profile (Account)</a></h2>
+                        <h2><a href="{% url 'password_reset' %}">Password Reset</a></h2>
+						<h2><a href="{% url 'My_PasswordChange_URL' %}">Change password</a></h2>
+						<!-- <li><a href="{% url 'logout' %}">Logout</a></li>
+						<li><a href="{% url 'My_Profile_Contact_Us' %}">Contact Us</a></li>
+                        <li><a href="{% url 'my_profile_list_URL' %}">Profile List</a></li>
+						<li><a href="{% url 'My_Profile_Detail_ID_URL' user.pk %}">Profile Details ID</a></li>
+                        <li><a href="{% url 'My_Profile_Detail_Slug_URL' user.pk %}">Profile Details Slug</a></li>
+                        <li><a href="{% url 'my_Profile_delete_URL' user.pk %}">Delete Profile (Account)</a></li>
                         <li><a href="{% url 'password_reset' %}">Password Reset</a></li>
-
-                        
-						<li><a href="{% url 'My_PasswordChange_URL' %}">Change password</a></li>
+						<li><a href="{% url 'My_PasswordChange_URL' %}">Change password</a></li> -->
 					</ul>
                     <h3>Association</h3>
 					<ul>
@@ -80,7 +92,6 @@
                 
               {% endif %}
 			</div>
-			<div class="mainsection">
                 {% if  user.is_authenticated %}
 
                 <div class="headerLinks">
@@ -90,7 +101,10 @@
 				{% else %}
 				
 				<div class="headerLinks">
-                    <h2><span class="user">( Not Logged In Now )</span>  <a href="{% url 'signup' %}">Signup</a> <a href="{% url 'login' %}">Member Login</a> <a href="{% url 'admin:login' %}">Admin Login</a></h2>
+                    <h2><span class="user">( Not Logged In Now )</span> 
+                    <a href="{% url 'My_Signup_URL' %}">Signup</a>
+                    <a href="{% url 'login' %}">Member Login</a> 
+                    <a href="{% url 'admin:login' %}">Admin Login</a></h2>
 				</div>
 				
                 {% endif%}
@@ -99,8 +113,8 @@
 					<div id="simpleSearch">
 						<input type="text" name="searchInput" id="searchInput" placeholder="Search Wikipedia" size="12" />
 						<div id="submitSearch"></div>
-					</div>
-					
+			</div>
+    </body>				
 <!-- Base.html - Header_Page End ------------------------------ -->
 
 
@@ -206,9 +220,15 @@
 
     <div class="pagefooter">
     
-        This page was last edited on 29.07.2017 | Template by <a href="http://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a><!--  Please leave this link unchanged -->
+        This page was last edited on 29.07.2017 | Template by 
+        <!--  Please leave this link unchanged -->
+        <a href="http://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a>
         <div class="footerlinks">
-            <a href="{% url 'About_URL' %}">About</a> <a href="#">Contact Us</a> <a href="#">Terms and conditions</a> <a href="#">Cookie statement</a> <a href="#">Developers</a>
+            <a href="{% url 'About_URL' %}">About</a> 
+            <a href="#">Contact Us</a>
+            <a href="#">Terms and conditions</a>
+            <a href="#">Cookie statement</a> 
+            <a href="#">Developers</a>
         </div>
     </div>
 

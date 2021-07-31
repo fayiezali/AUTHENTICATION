@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 # The model that is customized 
 class SignUpForm(UserCreationForm):
     # Customization 3 fields In Form Signup.
-    first_name    = forms.CharField(max_length=50  , required=False , widget=forms.TextInput()  , help_text='Optional') # 01
-    last_name     = forms.CharField(max_length=50  , required=False , widget=forms.TextInput()  , help_text='Optional') # 03
-    email         = forms.CharField(max_length=250 , required=True  , widget=forms.EmailInput() , help_text='Required Field') # 03
+    first_name    = forms.CharField(max_length=50   , required=False , widget=forms.TextInput()  , help_text='Optional') # 01
+    last_name     = forms.CharField(max_length=50   , required=False , widget=forms.TextInput()  , help_text='Optional') # 03
+    email         = forms.EmailField(max_length=150 , required=True  , widget=forms.EmailInput() , help_text='Required Field') # 03
     
     class Meta:
         model=User # Data Table
@@ -16,9 +16,7 @@ class SignUpForm(UserCreationForm):
         labels = {'username': ('User Name')} # change the Field Title
         labels = {'Password1': ('Password')} # change the Field Title
         labels = {'password2': ('Confirm Passwoerd')} # change the Field Title
-#
-#
-#
+        help_texts = {'email': ('Please Enter a Valid Email.')} 
 #
 #
 # 
@@ -33,38 +31,12 @@ class ProfileUpdateForm(forms.ModelForm):
             'last_name', 
             'email',
             ]
-class SignUpForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('email','first_name','last_name','username')
-        # help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')} 
-        
+#
+#
+#
+# class RegistrationForm(UserCreationForm):
+#     email = forms.EmailField(max_length=150)
 
-# class PasswordChangeForm(SetPasswordForm):
-#     """
-#     A form that lets a user change their password by entering their old
-#     password.
-#     """
-#     error_messages = {
-#         **SetPasswordForm.error_messages,
-#         'password_incorrect': _("Your old password was entered incorrectly. Please enter it again."),
-#     }
-#     old_password = forms.CharField(
-#         label=_("Old password"),
-#         strip=False,
-#         widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'autofocus': True}),
-#     )
-
-#     field_order = ['old_password', 'new_password1', 'new_password2']
-
-#     def clean_old_password(self):
-#         """
-#         Validate that the old_password field is correct.
-#         """
-#         old_password = self.cleaned_data["old_password"]
-#         if not self.user.check_password(old_password):
-#             raise ValidationError(
-#                 self.error_messages['password_incorrect'],
-#                 code='password_incorrect',
-#             )
-#         return old_password
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'password1', 'password2')

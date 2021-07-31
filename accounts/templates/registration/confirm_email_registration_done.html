@@ -1,0 +1,29 @@
+
+{% extends "public_pages/base.html" %}  
+{% load static %}
+
+
+
+
+
+
+{% block Page_Title  %}
+<h1>Finish Registration</h1>
+{% endblock Page_Title %}  
+
+
+
+
+
+
+{% block Contents_Page %} 
+
+<!-- http://127.0.0.1:8000/accounts/logout/ -->
+<!-- Required Form + Data Validation -->
+<h4> Confirm Email successfully .</h4>
+<p>Thank You ( {{ message }} ) For Your Email Confirmation. Now You can Login YOur Account </p>
+
+<a  href="{% url 'login' %}" role="button" style="float:lieft" class="btn btn-success">Re-Login</a><!-- الدخول إلى الموقع -->
+<br>
+<a  href="{% url 'Index_URL' %}" role="button" style="float:lieft" class="btn btn-success">Go To Home Page</a><!-- الدخول إلى الموقع -->
+{% endblock Contents_Page %} 

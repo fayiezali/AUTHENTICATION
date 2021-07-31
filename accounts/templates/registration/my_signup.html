@@ -1,0 +1,32 @@
+
+{% extends "public_pages/base.html" %}  
+{% load static %}
+
+
+
+
+
+
+{% block Page_Title  %}
+<h1>Signup</h1>
+{% endblock Page_Title %}  
+
+
+
+
+
+
+{% block Contents_Page %} 
+
+<form enctype="multipart/form-data" " method="post" novalidate>
+    {% csrf_token %} <!-- Django encrypts Data -->
+    
+        {% include  "includes/data_validation_form.html" %} <!-- Required Form + Data Validation -->
+
+        <button type="submit" class="btn btn-success">Signup</button>
+        <a href="{% url 'Index_URL' %}" class="btn btn-info">Cancel</a>
+</form>
+
+
+{% endblock Contents_Page %} 
+
