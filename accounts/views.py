@@ -231,3 +231,40 @@ def My_ProfileContactUs(request):
 		fail_silently=False,)
 	return render(request, 'registration/my_profile_contact_us.html')
 #
+
+# import requests
+# from django.contrib.auth.models import User
+# from django.http import JsonResponse
+
+# def send_otp(request):
+#     response_data = {}
+# 	if request.method == "POST" and request.is_ajax:
+#         user_phone = request.POST['phone_number']
+# 		url = "http://2factor.in/API/V1/293832-67745-11e5-88de-5600000c6b13/SMS/" + user_phone +  "/AUTOGEN/OTPSEND"
+# 		response = requests.request("GET", url)
+# 		data = response.json()
+# 		request.session['otp_session_data'] = data['Details']
+#         # otp_session_data is stored in session.
+# 		response_data = {'Message':'Success'}
+# 	else:
+# 		response_data = {'Message':'Failed'}
+# 	return JsonResponse(response_data)
+# #
+# #
+
+# def otp_verification(request):
+# 	response_data = {}
+# 	if request.method == "POST" and request.is_ajax:
+# 		user_otp = request.POST['otp']
+# 		url = "http://2factor.in/API/V1/293832-67745-11e5-88de-5600000c6b13/SMS/VERIFY/" + 
+#             request.session['otp_session_data'] + "/" + user_otp + ""
+#         # otp_session_data is fetched from session.
+# 		response = requests.request("GET", url)		
+# 		data = response.json()
+# 		if data['Status'] == "Success":
+# 			logged_user.is_active = True
+# 			response_data = {'Message':'Success'}
+# 		else:
+# 			response_data = {'Message':'Failed'}
+# 			logout(request)
+# 	return JsonResponse(response_data)

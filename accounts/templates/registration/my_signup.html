@@ -1,6 +1,7 @@
 
 {% extends "public_pages/base.html" %}  
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 
@@ -21,8 +22,13 @@
 <form enctype="multipart/form-data" " method="post" novalidate>
     {% csrf_token %} <!-- Django encrypts Data -->
     
-        {% include  "includes/data_validation_form.html" %} <!-- Required Form + Data Validation -->
-
+    {{ form|crispy }}
+    {% comment %}
+        <!-- Required Form + Data Validation -->
+        {% include  "includes/data_validation_form.html" %} 
+        {% endcomment %}
+        
+    <!-- Go To Home Page HTML-->
         <button type="submit" class="btn btn-success">Signup</button>
         <a href="{% url 'Index_URL' %}" class="btn btn-info">Cancel</a>
 </form>

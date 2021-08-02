@@ -14,24 +14,24 @@ urlpatterns  =[
     #The Full Name Of a Template To Use For GEnerating The Email With The Reset Password Link
     # The URL To Redirect To After a Successful Password Reset Request
     path('password-reset/'                             , auth_views.PasswordResetView.as_view(
-        template_name='commons/password_reset.html', 
-        subject_template_name='registration/password_reset_subject.txt',
+        template_name='registration/my_password_reset.html', 
+        subject_template_name='registration/my_password_reset_subject.txt',
         success_url= reverse_lazy('password_reset_done')),
         name='password_reset'),
         #
     # The Full Name Of a Template to Use For Displying The Password Reset Form
     path('password-reset/done/'                       , auth_views.PasswordResetDoneView.as_view(
-        template_name='commons/password_reset_done.html'),
+        template_name='registration/my_password_reset_done.html'),
         name='password_reset_done'),
         #
     # The Full Name Of a Template to Use For Displying The Password Reset Form
     path('password-reset-confirm/<uidb64>/<token>/'  , auth_views.PasswordResetConfirmView.as_view(
-        template_name='commons/password_reset_confirm.html'),
+        template_name='registration/my_password_reset_confirm.html'),
         name='password_reset_confirm'),
         #
     # The Full Name Of a Template to Use For Displying The Password Reset Form
     path('password-reset-complete/'                 , auth_views.PasswordResetCompleteView.as_view(
-        template_name='commons/password_reset_complete.html'),
+        template_name='registration/my_password_reset_complete.html'),
         name='password_reset_complete'),
 ]
 #

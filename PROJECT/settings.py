@@ -46,11 +46,15 @@ INSTALLED_APPS = [
     'public_pages', # التطبيق رقم 02
     'accounts', # التطبيق رقم 03
     'social_django',# 04 Login With Social Media(Facebook , Instagram ,......)
+    'crispy_forms',# 04 Login With Social Media(Facebook , Instagram ,......)
     # 'django_countries',# تطبيق معد مسبقاً يحتوي على جميع اسماء دول العالم
 # -------------------------------------------------------------------------------
-
 ]
-
+#
+#
+CRISPY_TEMPLATE_PACK ='bootstrap4'
+#
+#
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -177,16 +181,7 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD # password
 EMAIL_PORT = EMAIL_PORT
 EMAIL_USE_TLS = EMAIL_USE_TLS
 PASSWORD_RESET_TIMEOUT_DAYS = PASSWORD_RESET_TIMEOUT_DAYS
-
 #
-# #
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-# PASSWORD_RESET_TIMEOUT_DAYS = 1
 #
 # social auth
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
